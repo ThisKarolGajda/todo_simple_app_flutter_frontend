@@ -7,9 +7,7 @@ sealed class TodoEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadTodosEvent extends TodoEvent {
-
-}
+class LoadTodosEvent extends TodoEvent {}
 
 class AddTodoEvent extends TodoEvent {
   final TodoModel todo;
@@ -17,7 +15,9 @@ class AddTodoEvent extends TodoEvent {
   const AddTodoEvent(this.todo);
 
   @override
-  List<Object?> get props => [todo,];
+  List<Object?> get props => [
+        todo,
+      ];
 }
 
 class RemoveTodoEvent extends TodoEvent {
@@ -26,5 +26,7 @@ class RemoveTodoEvent extends TodoEvent {
   const RemoveTodoEvent(this.todo);
 
   @override
-  List<Object?> get props => [todo,];
+  List<Object?> get props => [
+        todo,
+      ];
 }

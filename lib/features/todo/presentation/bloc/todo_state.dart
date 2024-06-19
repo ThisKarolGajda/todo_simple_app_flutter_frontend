@@ -7,13 +7,9 @@ sealed class TodoState extends Equatable {
   List<Object> get props => [];
 }
 
-final class TodoInitial extends TodoState {
+final class TodoInitial extends TodoState {}
 
-}
-
-final class TodoLoading extends TodoState {
-
-}
+final class TodoLoading extends TodoState {}
 
 final class TodoLoaded extends TodoState {
   final List<TodoModel> todos;
@@ -21,7 +17,9 @@ final class TodoLoaded extends TodoState {
   const TodoLoaded(this.todos);
 
   @override
-  List<Object> get props => [todos,];
+  List<Object> get props => [
+        todos,
+      ];
 }
 
 final class TodoError extends TodoState {
@@ -30,5 +28,7 @@ final class TodoError extends TodoState {
   const TodoError(this.exception);
 
   @override
-  List<Object> get props => [exception,];
+  List<Object> get props => [
+        exception,
+      ];
 }

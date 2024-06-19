@@ -17,7 +17,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   onLogIn(LogInEvent event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
-    Either<Exception, UserEntity> either = await _repository.logIn(event.email, event.password);
+    Either<Exception, UserEntity> either =
+        await _repository.logIn(event.email, event.password);
     if (either.isLeft) {
       emit(AuthError(either.left));
       return;

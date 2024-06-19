@@ -20,7 +20,12 @@ class TodoWidget extends StatelessWidget {
         sl<TodoBloc>().add(AddTodoEvent(todoModel));
       },
       child: Container(
-        margin: EdgeInsets.only(left: 2.5.w, right: 2.5.w, top: 1.h, bottom: 1.h,),
+        margin: EdgeInsets.only(
+          left: 2.5.w,
+          right: 2.5.w,
+          top: 1.h,
+          bottom: 1.h,
+        ),
         padding: EdgeInsets.all(12.sp),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -32,17 +37,27 @@ class TodoWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(todo.title, style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.sp,
-                ), maxLines: 1,),
-                Text(todo.description, style: TextStyle(
-                  fontSize: 17.sp,
-                ),),
+                Text(
+                  todo.title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.sp,
+                  ),
+                  maxLines: 1,
+                ),
+                Text(
+                  todo.description,
+                  style: TextStyle(
+                    fontSize: 17.sp,
+                  ),
+                ),
               ],
             ),
-            Icon(todo.completed ? Icons.add : Icons.close, size: 28.sp, color: todo.completed ? Colors.green : Colors.red,),
-
+            Icon(
+              todo.completed ? Icons.add : Icons.close,
+              size: 28.sp,
+              color: todo.completed ? Colors.green : Colors.red,
+            ),
           ],
         ),
       ),

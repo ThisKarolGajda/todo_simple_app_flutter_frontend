@@ -40,13 +40,15 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     }
 
     emit(TodoLoading());
-    Either<Exception, List<TodoEntity>> eitherList = await _repository.getTodos();
+    Either<Exception, List<TodoEntity>> eitherList =
+        await _repository.getTodos();
     if (eitherList.isLeft) {
       emit(TodoError(eitherList.left));
       return;
     }
 
-    emit(TodoLoaded(eitherList.right.map((todo) => todo as TodoModel).toList()));
+    emit(
+        TodoLoaded(eitherList.right.map((todo) => todo as TodoModel).toList()));
   }
 
   onRemoveTodo(RemoveTodoEvent event, Emitter<TodoState> emit) async {
@@ -61,12 +63,14 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     }
 
     emit(TodoLoading());
-    Either<Exception, List<TodoEntity>> eitherList = await _repository.getTodos();
+    Either<Exception, List<TodoEntity>> eitherList =
+        await _repository.getTodos();
     if (eitherList.isLeft) {
       emit(TodoError(eitherList.left));
       return;
     }
 
-    emit(TodoLoaded(eitherList.right.map((todo) => todo as TodoModel).toList()));
+    emit(
+        TodoLoaded(eitherList.right.map((todo) => todo as TodoModel).toList()));
   }
 }

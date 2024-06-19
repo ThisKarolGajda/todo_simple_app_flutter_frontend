@@ -7,14 +7,12 @@ class AuthService {
   final Dio _dio = Dio();
   final String _baseUrl = "localhost:8080";
 
-  Future<Either<Exception, UserEntity>> getUser(String email, String password) async {
+  Future<Either<Exception, UserEntity>> getUser(
+      String email, String password) async {
     try {
       final response = await _dio.post(
         '$_baseUrl/login',
-        data: {
-          'email': email,
-          'password': password
-        },
+        data: {'email': email, 'password': password},
       );
 
       if (response.data is Map<String, dynamic>) {

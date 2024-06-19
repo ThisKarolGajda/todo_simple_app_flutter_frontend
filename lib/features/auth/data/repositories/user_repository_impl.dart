@@ -6,7 +6,9 @@ import 'package:todo_app/features/auth/domain/repositories/user_repository.dart'
 class UserRepositoryImpl extends UserRepository {
   final AuthService _authService;
 
-  UserRepositoryImpl(this._authService,);
+  UserRepositoryImpl(
+    this._authService,
+  );
 
   @override
   Future<Either<Exception, List<UserEntity>>> getAllUsers() {
@@ -15,7 +17,8 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<Either<Exception, UserEntity>> logIn(String email, String password) async {
+  Future<Either<Exception, UserEntity>> logIn(
+      String email, String password) async {
     return _authService.getUser(email, password);
   }
 
@@ -23,5 +26,4 @@ class UserRepositoryImpl extends UserRepository {
   Future<void> logOut() async {
     // TODO: implement logOut
   }
-
 }

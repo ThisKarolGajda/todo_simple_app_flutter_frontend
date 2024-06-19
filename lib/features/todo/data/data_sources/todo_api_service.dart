@@ -4,7 +4,8 @@ import 'package:todo_app/features/todo/data/models/todo_model.dart';
 
 class TodoApiService {
   final Dio _dio = Dio();
-  final String _baseUrl = "https://todosimpleappbackend-md3omytgiq-lm.a.run.app/";
+  final String _baseUrl =
+      "http://192.168.1.35:8080";
 
   Future<Either<Exception, List<TodoModel>>> getTodos() async {
     try {
@@ -33,10 +34,8 @@ class TodoApiService {
 
   Future<Either<Exception, bool>> addTodo(TodoModel todo) async {
     try {
-      final response = await _dio.post(
-        '$_baseUrl/api/todos',
-        data: todo.toJson()
-      );
+      final response =
+          await _dio.post('$_baseUrl/api/todos', data: todo.toJson());
 
       if (response.statusCode == 200) {
         return const Right(true);
@@ -51,7 +50,7 @@ class TodoApiService {
   Future<Either<Exception, bool>> deleteTodo(TodoModel todo) async {
     try {
       final response = await _dio.delete(
-          '$_baseUrl/api/todos/${todo.title}',
+        '$_baseUrl/api/todos/${todo.title}',
       );
 
       if (response.statusCode == 200) {

@@ -4,7 +4,11 @@ class TodoModel extends TodoEntity {
   TodoModel(super.title, super.description, super.completed);
 
   static TodoModel fromJson(Map<String, dynamic> json) {
-    return TodoModel(json['title'], json['description'], json['completed'],);
+    return TodoModel(
+      json['title'],
+      json['description'],
+      json['completed'],
+    );
   }
 
   Map<String, dynamic> toJson() {
@@ -16,6 +20,10 @@ class TodoModel extends TodoEntity {
   }
 
   TodoModel copyWith({String? title, String? description, bool? completed}) {
-    return TodoModel(title ?? this.title, description ?? this.description, completed ?? this.completed,);
+    return TodoModel(
+      title ?? this.title,
+      description ?? this.description,
+      completed ?? this.completed,
+    );
   }
 }

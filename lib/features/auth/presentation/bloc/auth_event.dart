@@ -15,11 +15,9 @@ final class LogInEvent extends AuthEvent {
 
   @override
   List<Object?> get props => [
-    email,
-    password,
-  ];
+        email,
+        password,
+      ];
 }
 
-final class LogOutEvent extends AuthEvent {
-
-}
+final class LogOutEvent extends AuthEvent {}

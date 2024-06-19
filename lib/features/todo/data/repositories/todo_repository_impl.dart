@@ -23,5 +23,4 @@ class TodoRepositoryImpl extends TodoRepository {
   Future<Either<Exception, bool>> removeTodo(TodoEntity todo) {
     return _service.deleteTodo(todo as TodoModel);
   }
-
 }
